@@ -1,0 +1,897 @@
+﻿<Window x:Class="FiloYenile.Gorunumler.AnaSayfaGorunumu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FiloYenile - Ana Sayfa"
+        Width="1450"
+        Height="900"
+        MinWidth="1200"
+        MinHeight="760"
+        WindowStartupLocation="CenterScreen"
+        Background="#111A2E">
+
+    <Window.Resources>
+
+        <Style x:Key="CamKart"
+               TargetType="Border">
+            <Setter Property="Background" Value="#B31A2740"/>
+            <Setter Property="BorderBrush" Value="#405577"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="18"/>
+        </Style>
+
+        <Style x:Key="MenuButonu"
+               TargetType="Button">
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="Foreground" Value="#AFC4E5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="HizliButon"
+               TargetType="Button">
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Foreground" Value="#E7EFFC"/>
+            <Setter Property="Background" Value="#263A5C"/>
+            <Setter Property="BorderBrush" Value="#38557D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="16,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0"
+                                 EndPoint="1,1">
+                <GradientStop Color="#1D3157"
+                              Offset="0"/>
+                <GradientStop Color="#111B31"
+                              Offset="0.5"/>
+                <GradientStop Color="#202942"
+                              Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Margin="12"
+                Background="#D9192B4B"
+                BorderBrush="#38577D"
+                BorderThickness="1"
+                CornerRadius="24">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="88"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+
+                <Border Width="50"
+                        Height="50"
+                        CornerRadius="15"
+                        Background="#4B8DFF"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                    <TextBlock Text="FY"
+                               Foreground="White"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                </Border>
+
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            Margin="0,25,0,0">
+
+                    <Button Style="{StaticResource MenuButonu}"
+                            Content="▣"
+                            ToolTip="Araçlar"
+                            Click="AraclarButonu_Click"/>
+
+                    <Button Style="{StaticResource MenuButonu}"
+                            Content="⌁"
+                            ToolTip="Analizler"
+                            Click="AnalizlerButonu_Click"/>
+
+                    <Button Style="{StaticResource MenuButonu}"
+                            Content="☷"
+                            ToolTip="Raporlar"
+                            Click="RaporlarButonu_Click"/>
+
+                    <Button Style="{StaticResource MenuButonu}"
+                            Content="◇"
+                            ToolTip="Karar Önerileri"
+                            Click="KararOnerileriButonu_Click"/>
+
+                    <Button Style="{StaticResource MenuButonu}"
+                            Content="⚒"
+                            ToolTip="Bakım Planı"
+                            Click="BakimPlaniButonu_Click"/>
+
+                 
+                </StackPanel>
+
+             
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Column="1"
+              Margin="28,22,30,24">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="78"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="190"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel VerticalAlignment="Center">
+
+                    <TextBlock x:Name="KarsilamaText"
+           Text="Merhaba, Yönetici! 👋"
+           Foreground="#F8FAFF"
+           FontSize="28"
+           FontWeight="SemiBold"/>
+                    <TextBlock Text="Filonuz bugün nasıl görünüyor?"
+                               Foreground="#A9BBD8"
+                               FontSize="13"
+                               Margin="0,6,0,0"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                    <Border Background="#B322304A"
+                            BorderBrush="#405879"
+                            BorderThickness="1"
+                            CornerRadius="13"
+                            Padding="15,10"
+                            Margin="0,0,10,0">
+
+                        <TextBlock x:Name="BugunText"
+           Text="Bugün"
+           Foreground="#D7E3F5"
+           FontSize="13"/>
+                    </Border>
+
+
+
+                    <Button Background="Transparent"
+        BorderThickness="0"
+        Padding="0"
+        Cursor="Hand"
+        Click="KullaniciButonu_Click">
+
+                        <Border Background="#B322304A"
+            BorderBrush="#405879"
+            BorderThickness="1"
+            CornerRadius="14"
+            Padding="12,7">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Border Width="34"
+                    Height="34"
+                    CornerRadius="17"
+                    Background="#4B8DFF">
+
+                                    <TextBlock x:Name="KullaniciHarfText"
+                           Text="Y"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                                </Border>
+
+                                <StackPanel Margin="9,0,0,0"
+                        VerticalAlignment="Center">
+
+                                    <TextBlock x:Name="KullaniciAdiText"
+                           Text="Yönetici"
+                           Foreground="#F8FAFF"
+                           FontSize="12"
+                           FontWeight="SemiBold"/>
+
+                                    <TextBlock Text="Filo Yöneticisi"
+                           Foreground="#8FA5C7"
+                           FontSize="10"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Margin="0,10,0,14">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Margin="0,0,9,0"
+                        Padding="18"
+                        Background="#CC203A65"
+                        BorderBrush="#447DCA"
+                        BorderThickness="1"
+                        CornerRadius="17">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="58"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="48"
+                                Height="48"
+                                CornerRadius="14"
+                                Background="#334B8DFF">
+
+                            <TextBlock Text="🚙"
+                                       FontSize="23"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <StackPanel Grid.Column="1"
+                                    Margin="12,0,0,0"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Toplam Araç"
+                                       Foreground="#B9CBE5"
+                                       FontSize="12"/>
+
+                            <TextBlock x:Name="ToplamAracText"
+           Text="0"
+           Foreground="White"
+           FontSize="31"
+           FontWeight="SemiBold"
+           Margin="0,2,0,0"/>
+
+                            <TextBlock Text="Tüm filo"
+                                       Foreground="#68A7FF"
+                                       FontSize="11"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Column="1"
+                        Margin="9,0"
+                        Padding="18"
+                        Background="#CC16465B"
+                        BorderBrush="#258A9E"
+                        BorderThickness="1"
+                        CornerRadius="17">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="58"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="48"
+                                Height="48"
+                                CornerRadius="14"
+                                Background="#3322D3EE">
+
+                            <TextBlock Text="●"
+                                       Foreground="#22D3EE"
+                                       FontSize="25"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <StackPanel Grid.Column="1"
+                                    Margin="12,0,0,0"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Aktif Araç"
+                                       Foreground="#B9CBE5"
+                                       FontSize="12"/>
+
+                            <TextBlock x:Name="AktifAracText"
+           Text="0"
+           Foreground="White"
+           FontSize="31"
+           FontWeight="SemiBold"
+           Margin="0,2,0,0"/>
+
+                            <TextBlock Text="%83 aktif"
+                                       Foreground="#22D3EE"
+                                       FontSize="11"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Column="2"
+                        Margin="9,0"
+                        Padding="18"
+                        Background="#CC38305E"
+                        BorderBrush="#6956A7"
+                        BorderThickness="1"
+                        CornerRadius="17">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="58"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="48"
+                                Height="48"
+                                CornerRadius="14"
+                                Background="#338B5CF6">
+
+                            <TextBlock Text="↻"
+                                       Foreground="#B69BFF"
+                                       FontSize="29"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <StackPanel Grid.Column="1"
+                                    Margin="12,0,0,0"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Yenileme Adayı"
+                                       Foreground="#B9CBE5"
+                                       FontSize="12"/>
+
+                            <TextBlock x:Name="YenilemeAdayiText"
+           Text="0"
+           Foreground="White"
+           FontSize="31"
+           FontWeight="SemiBold"
+           Margin="0,2,0,0"/>
+
+                            <TextBlock Text="Öncelikli"
+                                       Foreground="#B69BFF"
+                                       FontSize="11"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Column="3"
+                        Margin="9,0,0,0"
+                        Padding="18"
+                        Background="#CC4C284B"
+                        BorderBrush="#91456F"
+                        BorderThickness="1"
+                        CornerRadius="17">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="58"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="48"
+                                Height="48"
+                                CornerRadius="14"
+                                Background="#33EC4899">
+
+                            <TextBlock Text="⚙"
+                                       Foreground="#F472B6"
+                                       FontSize="24"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <StackPanel Grid.Column="1"
+                                    Margin="12,0,0,0"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Bakımda"
+                                       Foreground="#B9CBE5"
+                                       FontSize="12"/>
+
+                            <TextBlock x:Name="BakimdaText"
+           Text="0"
+           Foreground="White"
+           FontSize="31"
+           FontWeight="SemiBold"
+           Margin="0,2,0,0"/>
+
+                            <TextBlock Text="Serviste"
+                                       Foreground="#F472B6"
+                                       FontSize="11"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Margin="0,4,0,15">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.05*"/>
+                    <ColumnDefinition Width="1.35*"/>
+                    <ColumnDefinition Width="0.85*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Style="{StaticResource CamKart}"
+                        Margin="0,0,9,0"
+                        Padding="18">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock Text="Performans Özeti"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"/>
+
+                            <TextBlock Text="Filo sağlık göstergeleri"
+                                       Foreground="#8FA5C7"
+                                       FontSize="11"
+                                       Margin="0,3,0,0"/>
+
+                        </StackPanel>
+
+                        <Viewbox Grid.Row="1"
+                                 Stretch="Uniform"
+                                 Margin="10">
+
+                            <Canvas Width="300"
+                                    Height="260">
+
+                                <Polygon Points="150,20 270,105 225,235 75,235 30,105"
+                                         Stroke="#456082"
+                                         StrokeThickness="1"
+                                         Fill="#221E3554"/>
+
+                                <Polygon Points="150,55 235,115 203,205 97,205 65,115"
+                                         Stroke="#3B5577"
+                                         StrokeThickness="1"
+                                         Fill="Transparent"/>
+
+                                <Polygon Points="150,88 202,125 182,180 118,180 98,125"
+                                         Stroke="#334A68"
+                                         StrokeThickness="1"
+                                         Fill="Transparent"/>
+
+                                <Line X1="150"
+                                      Y1="130"
+                                      X2="150"
+                                      Y2="20"
+                                      Stroke="#354F70"/>
+
+                                <Line X1="150"
+                                      Y1="130"
+                                      X2="270"
+                                      Y2="105"
+                                      Stroke="#354F70"/>
+
+                                <Line X1="150"
+                                      Y1="130"
+                                      X2="225"
+                                      Y2="235"
+                                      Stroke="#354F70"/>
+
+                                <Line X1="150"
+                                      Y1="130"
+                                      X2="75"
+                                      Y2="235"
+                                      Stroke="#354F70"/>
+
+                                <Line X1="150"
+                                      Y1="130"
+                                      X2="30"
+                                      Y2="105"
+                                      Stroke="#354F70"/>
+
+                                <Polygon x:Name="RadarDegerPolygon"
+         Points="150,43 238,112 207,210 91,200 61,111"
+         Stroke="#6BAAFF"
+         StrokeThickness="3"
+         Fill="#333B82F6"/>
+                                <Ellipse Width="9"
+                                         Height="9"
+                                         Fill="#7DD3FC"
+                                         Canvas.Left="145.5"
+                                         Canvas.Top="38.5"/>
+
+                                <Ellipse Width="9"
+                                         Height="9"
+                                         Fill="#7DD3FC"
+                                         Canvas.Left="233.5"
+                                         Canvas.Top="107.5"/>
+
+                                <Ellipse Width="9"
+                                         Height="9"
+                                         Fill="#7DD3FC"
+                                         Canvas.Left="202.5"
+                                         Canvas.Top="205.5"/>
+
+                                <Ellipse Width="9"
+                                         Height="9"
+                                         Fill="#7DD3FC"
+                                         Canvas.Left="86.5"
+                                         Canvas.Top="195.5"/>
+
+                                <Ellipse Width="9"
+                                         Height="9"
+                                         Fill="#7DD3FC"
+                                         Canvas.Left="56.5"
+                                         Canvas.Top="106.5"/>
+
+                                <TextBlock Text="Verimlilik"
+                                           Foreground="#C8D7EA"
+                                           FontSize="10"
+                                           Canvas.Left="125"
+                                           Canvas.Top="0"/>
+
+                                <TextBlock Text="Güvenilirlik"
+                                           Foreground="#C8D7EA"
+                                           FontSize="10"
+                                           Canvas.Left="235"
+                                           Canvas.Top="80"/>
+
+                                <TextBlock Text="Maliyet"
+                                           Foreground="#C8D7EA"
+                                           FontSize="10"
+                                           Canvas.Left="210"
+                                           Canvas.Top="238"/>
+
+                                <TextBlock Text="Bakım"
+                                           Foreground="#C8D7EA"
+                                           FontSize="10"
+                                           Canvas.Left="43"
+                                           Canvas.Top="238"/>
+
+                                <TextBlock Text="Kullanım"
+                                           Foreground="#C8D7EA"
+                                           FontSize="10"
+                                           Canvas.Left="0"
+                                           Canvas.Top="80"/>
+
+                            </Canvas>
+
+                        </Viewbox>
+
+                        <Border Grid.Row="2"
+                                Background="#1A3B82F6"
+                                CornerRadius="11"
+                                Padding="11">
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Genel Filo Skoru"
+                                           Foreground="#AFC0D9"/>
+
+                                <TextBlock x:Name="GenelFiloSkoruText"
+           Grid.Column="1"
+           Text="0 / 100"
+           Foreground="#71AFFF"
+           FontSize="17"
+           FontWeight="Bold"/>
+
+                            </Grid>
+
+                        </Border>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Column="1"
+        Style="{StaticResource CamKart}"
+        Margin="9,0"
+        Padding="18">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock Text="Yıllık Toplam Maliyet"
+                       Foreground="White"
+                       FontSize="16"
+                       FontWeight="SemiBold"/>
+
+                            <TextBlock Text="Filonun yıllık bakım ve yakıt giderleri"
+                       Foreground="#8FA5C7"
+                       FontSize="11"
+                       Margin="0,3,0,0"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center">
+
+                            <TextBlock x:Name="YillikToplamMaliyetText"
+                       Text="₺0"
+                       Foreground="White"
+                       FontSize="34"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="Tahmini yıllık filo maliyeti"
+                       Foreground="#8FA5C7"
+                       FontSize="11"
+                       Margin="0,8,0,0"
+                       HorizontalAlignment="Center"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <Border Grid.Column="2"
+                        Style="{StaticResource CamKart}"
+                        Margin="9,0,0,0"
+                        Padding="17">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock Text="Hızlı İşlemler"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"/>
+
+                            <TextBlock Text="Sık kullanılan işlemler"
+                                       Foreground="#8FA5C7"
+                                       FontSize="11"
+                                       Margin="0,3,0,0"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1"
+                                    Margin="0,16,0,0">
+
+                            <Button Height="46"
+        Margin="0,0,0,10"
+        Content="+   Yeni Araç Ekle"
+        Foreground="White"
+        Background="#397CFF"
+        BorderThickness="0"
+        Padding="16,0"
+        HorizontalContentAlignment="Left"
+        Click="HizliYeniAracButonu_Click"/>
+
+                            <Button Style="{StaticResource HizliButon}"
+        Content="✦    Analizi"
+        Click="HizliAnalizButonu_Click"/>
+
+                            <Button Style="{StaticResource HizliButon}"
+        Content="⚙   Bakım Planla"
+        Click="HizliBakimButonu_Click"/>
+
+                            <Button Style="{StaticResource HizliButon}"
+        Content="▤   Rapor Oluştur"
+        Click="HizliRaporButonu_Click"/>
+                        </StackPanel>
+
+                        <Border Grid.Row="2"
+                                VerticalAlignment="Bottom"
+                                Background="#22F59E0B"
+                                BorderBrush="#55F59E0B"
+                                BorderThickness="1"
+                                CornerRadius="13"
+                                Padding="13">
+
+                            <StackPanel>
+
+                                <TextBlock Text="⚠  Dikkat"
+                                           Foreground="#FBBF24"
+                                           FontWeight="SemiBold"/>
+
+                                <TextBlock x:Name="DikkatText"
+           Text="Yenileme değerlendirmesi bekleyen araç bulunmuyor."
+           Foreground="#D4DEEC"
+           FontSize="10"
+           Margin="0,5,0,0"
+           TextWrapping="Wrap"/>
+                            </StackPanel>
+
+                        </Border>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+            <Border Grid.Row="3"
+                    Style="{StaticResource CamKart}"
+                    Padding="17">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock Text="Yenileme Adayı Araçlar"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"/>
+
+                            <TextBlock Text="Karar destek motorunun öncelikli gördüğü araçlar"
+                                       Foreground="#8FA5C7"
+                                       FontSize="10"
+                                       Margin="0,3,0,0"/>
+
+                        </StackPanel>
+
+                        <Button Grid.Column="1"
+        Content="Tümünü Gör"
+        Foreground="#68A7FF"
+        Background="Transparent"
+        BorderThickness="0"
+        Cursor="Hand"
+        VerticalAlignment="Center"
+        Click="TumunuGorButonu_Click"/>
+
+                    </Grid>
+
+                    <DataGrid x:Name="YenilemeAdaylariTablosu"
+          Grid.Row="1"
+          Margin="0,12,0,0"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          CanUserAddRows="False"
+          CanUserDeleteRows="False"
+          HeadersVisibility="Column"
+          Background="Transparent"
+          Foreground="#E8EFFA"
+          BorderThickness="0"
+          GridLinesVisibility="None"
+          RowBackground="#1D2B45"
+          AlternatingRowBackground="#22324F"
+          RowHeight="34">
+
+                        <DataGrid.Resources>
+
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#263A5C"/>
+                                <Setter Property="Foreground" Value="#B9CBE5"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Padding" Value="8"/>
+                            </Style>
+
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Padding" Value="8"/>
+                                <Setter Property="Foreground" Value="#E8EFFA"/>
+                            </Style>
+
+                        </DataGrid.Resources>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Plaka"
+                            Binding="{Binding Arac.Plaka}"
+                            Width="1.1*"/>
+
+                            <DataGridTextColumn Header="Marka"
+                            Binding="{Binding Arac.Marka}"
+                            Width="1.2*"/>
+
+                            <DataGridTextColumn Header="Model"
+                            Binding="{Binding Arac.Model}"
+                            Width="1.2*"/>
+
+                            <DataGridTextColumn Header="Yıl"
+                            Binding="{Binding Arac.ModelYili}"
+                            Width="0.7*"/>
+
+                            <DataGridTextColumn Header="Skor"
+                            Binding="{Binding TopsisSkoru, StringFormat={}{0:F3}}"
+                            Width="0.8*"/>
+
+                            <DataGridTextColumn Header="Durum"
+                            Binding="{Binding OncelikSeviyesi}"
+                            Width="1*"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

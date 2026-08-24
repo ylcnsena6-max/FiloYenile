@@ -1,0 +1,145 @@
+﻿<Window x:Class="FiloYenile.Gorunumler.GirisGorunumu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FiloYenile"
+        Width="1450"
+        Height="900"
+        MinWidth="1200"
+        MinHeight="760"
+        WindowStartupLocation="CenterScreen"
+        Background="#111A2E">
+
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0"
+                                 EndPoint="1,1">
+                <GradientStop Color="#1D3157"
+                              Offset="0"/>
+                <GradientStop Color="#111B31"
+                              Offset="0.55"/>
+                <GradientStop Color="#202942"
+                              Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="900">
+
+            <Border Width="90"
+                    Height="90"
+                    CornerRadius="25"
+                    Background="#4B8DFF"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,30">
+
+                <TextBlock Text="FY"
+                           Foreground="White"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+            </Border>
+
+            <TextBlock Text="FiloYenile"
+                       Foreground="White"
+                       FontSize="54"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Filo Yenileme Karar Destek Sistemine Hoş Geldiniz"
+                       Foreground="#DCE8F8"
+                       FontSize="25"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       Margin="0,15,0,0"/>
+
+            <TextBlock Text="Araç filonuzu çok kriterli karar verme yöntemleri ile analiz edin, değerlendirin ve yenileme önceliklerini belirleyin."
+                       Foreground="#91A6C7"
+                       FontSize="14"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       Width="720"
+                       Margin="0,14,0,0"/>
+
+            <Border Margin="0,38,0,0"
+                    Padding="22,14"
+                    CornerRadius="16"
+                    Background="#661A2740"
+                    BorderBrush="#405577"
+                    BorderThickness="1"
+                    HorizontalAlignment="Center">
+
+                <StackPanel>
+
+                    <TextBlock Text="C#  •  WPF  •  SQL  •  Entity Framework Core"
+                               Foreground="#68A7FF"
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="AHP  •  TOPSIS  •  Çok Kriterli Karar Destek Sistemi"
+                               Foreground="#B69BFF"
+                               FontSize="13"
+                               Margin="0,8,0,0"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <TextBlock Text="Sisteme devam etmek için aşağıdaki butona tıklayın."
+                       Foreground="#8298B8"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       Margin="0,35,0,12"/>
+
+            <Button Width="64"
+                    Height="64"
+                    Content="↓"
+                    Foreground="White"
+                    Background="#397CFF"
+                    BorderThickness="0"
+                    FontSize="29"
+                    FontWeight="SemiBold"
+                    Cursor="Hand"
+                    HorizontalAlignment="Center"
+                    Click="DevamButonu_Click">
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="32">
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            <TextBlock Text="FiloYenile • Karar Destek Sistemi"
+                       Foreground="#60738F"
+                       FontSize="10"
+                       HorizontalAlignment="Center"
+                       Margin="0,30,0,0"/>
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>

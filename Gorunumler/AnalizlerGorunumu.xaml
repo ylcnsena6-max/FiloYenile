@@ -1,0 +1,362 @@
+﻿<Window x:Class="FiloYenile.Gorunumler.AnalizlerGorunumu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Analizler"
+        Width="1200"
+        Height="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#111A2E">
+
+    <Grid Margin="30">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- BAŞLIK -->
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="Analizler"
+                       Foreground="White"
+                       FontSize="28"
+                       FontWeight="SemiBold"/>
+
+            <TextBlock Text="AHP kriter ağırlıklarını ve tutarlılık oranını inceleyin."
+                       Foreground="#91A6C7"
+                       FontSize="13"
+                       Margin="0,6,0,0"/>
+
+        </StackPanel>
+
+        <!-- ÜST KARTLAR -->
+        <Grid Grid.Row="1"
+              Margin="0,25,0,20">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- TUTARLILIK -->
+            <Border Grid.Column="0"
+                    Margin="0,0,10,0"
+                    Padding="20"
+                    CornerRadius="16"
+                    Background="#CC1A2740"
+                    BorderBrush="#405577"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <TextBlock Text="AHP Tutarlılık Oranı"
+                               Foreground="#AFC0D9"
+                               FontSize="12"/>
+
+                    <TextBlock x:Name="TutarlilikOraniText"
+                               Text="%0,00"
+                               Foreground="#68A7FF"
+                               FontSize="30"
+                               FontWeight="SemiBold"
+                               Margin="0,8,0,0"/>
+
+                    <TextBlock Text="0.10 altında olması beklenir."
+                               Foreground="#91A6C7"
+                               FontSize="11"
+                               Margin="0,4,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- KRİTER SAYISI -->
+            <Border Grid.Column="1"
+                    Margin="10,0"
+                    Padding="20"
+                    CornerRadius="16"
+                    Background="#CC1A2740"
+                    BorderBrush="#405577"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <TextBlock Text="Kriter Sayısı"
+                               Foreground="#AFC0D9"
+                               FontSize="12"/>
+
+                    <TextBlock Text="6"
+                               Foreground="#22D3EE"
+                               FontSize="30"
+                               FontWeight="SemiBold"
+                               Margin="0,8,0,0"/>
+
+                    <TextBlock Text="Filo yenileme değerlendirme kriteri"
+                               Foreground="#91A6C7"
+                               FontSize="11"
+                               Margin="0,4,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- YÖNTEM -->
+            <Border Grid.Column="2"
+                    Margin="10,0,0,0"
+                    Padding="20"
+                    CornerRadius="16"
+                    Background="#CC1A2740"
+                    BorderBrush="#405577"
+                    BorderThickness="1">
+
+                <StackPanel>
+
+                    <TextBlock Text="Karar Yöntemi"
+                               Foreground="#AFC0D9"
+                               FontSize="12"/>
+
+                    <TextBlock Text="AHP + TOPSIS"
+                               Foreground="#B69BFF"
+                               FontSize="24"
+                               FontWeight="SemiBold"
+                               Margin="0,10,0,0"/>
+
+                    <TextBlock Text="Çok kriterli karar destek sistemi"
+                               Foreground="#91A6C7"
+                               FontSize="11"
+                               Margin="0,5,0,0"/>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+
+        <!-- KRİTER AĞIRLIKLARI -->
+        <Border Grid.Row="2"
+                Padding="22"
+                CornerRadius="18"
+                Background="#CC1A2740"
+                BorderBrush="#405577"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+
+                    <TextBlock Text="AHP Kriter Ağırlıkları"
+                               Foreground="White"
+                               FontSize="18"
+                               FontWeight="SemiBold"/>
+
+                    <TextBlock Text="Yüksek ağırlık, kriterin karar üzerindeki etkisinin daha yüksek olduğunu gösterir."
+                               Foreground="#91A6C7"
+                               FontSize="11"
+                               Margin="0,5,0,0"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                            Margin="0,25,0,0">
+
+                    <!-- ARAÇ YAŞI -->
+                    <Grid Margin="0,0,0,18">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Araç Yaşı"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="AracYasiBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#397CFF"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="AracYasiText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#68A7FF"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- KİLOMETRE -->
+                    <Grid Margin="0,0,0,18">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Kilometre"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="KilometreBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#22D3EE"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="KilometreText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#22D3EE"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- BAKIM MALİYETİ -->
+                    <Grid Margin="0,0,0,18">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Yıllık Bakım Maliyeti"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="BakimMaliyetiBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#8B5CF6"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="BakimMaliyetiText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#B69BFF"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- YAKIT MALİYETİ -->
+                    <Grid Margin="0,0,0,18">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Yıllık Yakıt Maliyeti"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="YakitMaliyetiBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#F59E0B"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="YakitMaliyetiText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#FBBF24"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- ARIZA SAYISI -->
+                    <Grid Margin="0,0,0,18">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Arıza Sayısı"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="ArizaSayisiBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#EC4899"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="ArizaSayisiText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#F472B6"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- GÜNCEL DEĞER -->
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Güncel Araç Değeri"
+                                   Foreground="#DCE8F8"
+                                   VerticalAlignment="Center"/>
+
+                        <ProgressBar x:Name="GuncelDegerBar"
+                                     Grid.Column="1"
+                                     Height="14"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     Foreground="#22C55E"
+                                     Background="#263A5C"/>
+
+                        <TextBlock x:Name="GuncelDegerText"
+                                   Grid.Column="2"
+                                   Text="%0"
+                                   Foreground="#4ADE80"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

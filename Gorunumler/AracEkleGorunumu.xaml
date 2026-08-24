@@ -1,0 +1,462 @@
+﻿<Window x:Class="FiloYenile.Gorunumler.AracEkleGorunumu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Yeni Araç Ekle"
+        Width="720"
+        Height="720"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="#111A2E">
+
+    <Window.Resources>
+
+        <!-- TEXTBOX -->
+        <Style x:Key="GirisKutusu"
+               TargetType="TextBox">
+
+            <Setter Property="Height"
+                    Value="40"/>
+
+            <Setter Property="Background"
+                    Value="#1B2942"/>
+
+            <Setter Property="Foreground"
+                    Value="#E8EFFA"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#405577"/>
+
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+
+            <Setter Property="Padding"
+                    Value="12,0"/>
+
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+
+            <Setter Property="FontSize"
+                    Value="13"/>
+
+        </Style>
+
+
+        <!-- ETİKET -->
+        <Style x:Key="Etiket"
+               TargetType="TextBlock">
+
+            <Setter Property="Foreground"
+                    Value="#AFC0D9"/>
+
+            <Setter Property="FontSize"
+                    Value="12"/>
+
+            <Setter Property="Margin"
+                    Value="0,0,0,6"/>
+
+        </Style>
+
+
+        <!-- COMBOBOX ITEM -->
+        <Style x:Key="KoyuComboBoxItem"
+               TargetType="ComboBoxItem">
+
+            <Setter Property="Foreground"
+                    Value="#E8EFFA"/>
+
+            <Setter Property="Background"
+                    Value="#1B2942"/>
+
+            <Setter Property="Padding"
+                    Value="12,9"/>
+
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Stretch"/>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsHighlighted"
+                         Value="True">
+
+                    <Setter Property="Background"
+                            Value="#397CFF"/>
+
+                    <Setter Property="Foreground"
+                            Value="White"/>
+
+                </Trigger>
+
+                <Trigger Property="IsSelected"
+                         Value="True">
+
+                    <Setter Property="Background"
+                            Value="#2F65D9"/>
+
+                    <Setter Property="Foreground"
+                            Value="White"/>
+
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+
+
+        <!-- KOYU COMBOBOX -->
+        <Style x:Key="KoyuComboBox"
+               TargetType="ComboBox">
+
+            <Setter Property="Height"
+                    Value="40"/>
+
+            <Setter Property="Foreground"
+                    Value="#E8EFFA"/>
+
+            <Setter Property="Background"
+                    Value="#1B2942"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#405577"/>
+
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="ComboBox">
+
+                        <Grid>
+
+                            <!-- ANA KUTU -->
+                            <Border x:Name="AnaKutu"
+                                    Background="#1B2942"
+                                    BorderBrush="#405577"
+                                    BorderThickness="1"
+                                    CornerRadius="3">
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="42"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <!-- SEÇİLEN YAKIT -->
+                                    <ContentPresenter Grid.Column="0"
+                                                      Margin="12,0,5,0"
+                                                      VerticalAlignment="Center"
+                                                      HorizontalAlignment="Left"
+                                                      Content="{TemplateBinding SelectionBoxItem}"
+                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                      ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                      TextElement.Foreground="#E8EFFA"/>
+
+
+                                    <!-- OK BUTONU -->
+                                    <ToggleButton Grid.Column="1"
+                                                  Focusable="False"
+                                                  Background="Transparent"
+                                                  BorderThickness="0"
+                                                  IsChecked="{Binding IsDropDownOpen,
+                                                                      RelativeSource={RelativeSource TemplatedParent},
+                                                                      Mode=TwoWay}">
+
+                                        <TextBlock Text="▼"
+                                                   Foreground="#91A6C7"
+                                                   FontSize="10"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+
+                                    </ToggleButton>
+
+                                </Grid>
+
+                            </Border>
+
+
+                            <!-- AÇILIR MENÜ -->
+                            <Popup x:Name="PART_Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False">
+
+                                <Border Background="#1B2942"
+                                        BorderBrush="#405577"
+                                        BorderThickness="1"
+                                        MinWidth="{Binding ActualWidth,
+                                                           RelativeSource={RelativeSource TemplatedParent}}">
+
+                                    <ScrollViewer MaxHeight="220"
+                                                  VerticalScrollBarVisibility="Auto">
+
+                                        <ItemsPresenter/>
+
+                                    </ScrollViewer>
+
+                                </Border>
+
+                            </Popup>
+
+                        </Grid>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
+
+    <Grid Margin="35">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+
+        <!-- BAŞLIK -->
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="Yeni Araç Ekle"
+                       Foreground="White"
+                       FontSize="27"
+                       FontWeight="SemiBold"/>
+
+            <TextBlock Text="Filoya yeni bir araç kaydı oluşturun."
+                       Foreground="#91A6C7"
+                       FontSize="13"
+                       Margin="0,6,0,0"/>
+
+        </StackPanel>
+
+
+        <!-- FORM -->
+        <Border Grid.Row="1"
+                Margin="0,25,0,20"
+                Background="#CC1A2740"
+                BorderBrush="#405577"
+                BorderThickness="1"
+                CornerRadius="18"
+                Padding="25">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="20"/>
+
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="22"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="22"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="22"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="22"/>
+
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+
+                <!-- PLAKA -->
+                <StackPanel Grid.Row="0">
+
+                    <TextBlock Text="Plaka"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="PlakaTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- MARKA -->
+                <StackPanel Grid.Row="0"
+                            Grid.Column="2">
+
+                    <TextBlock Text="Marka"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="MarkaTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- MODEL -->
+                <StackPanel Grid.Row="2">
+
+                    <TextBlock Text="Model"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="ModelTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- MODEL YILI -->
+                <StackPanel Grid.Row="2"
+                            Grid.Column="2">
+
+                    <TextBlock Text="Model Yılı"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="ModelYiliTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- KİLOMETRE -->
+                <StackPanel Grid.Row="4">
+
+                    <TextBlock Text="Kilometre"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="KilometreTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- YAKIT TÜRÜ -->
+                <StackPanel Grid.Row="4"
+                            Grid.Column="2">
+
+                    <TextBlock Text="Yakıt Türü"
+                               Style="{StaticResource Etiket}"/>
+
+                    <ComboBox x:Name="YakitTuruComboBox"
+                              Style="{StaticResource KoyuComboBox}"
+                              SelectedIndex="-1">
+
+                        <ComboBoxItem Content="Dizel"
+                                      Style="{StaticResource KoyuComboBoxItem}"/>
+
+                        <ComboBoxItem Content="Benzin"
+                                      Style="{StaticResource KoyuComboBoxItem}"/>
+
+                        <ComboBoxItem Content="Elektrik"
+                                      Style="{StaticResource KoyuComboBoxItem}"/>
+
+                        <ComboBoxItem Content="Hibrit"
+                                      Style="{StaticResource KoyuComboBoxItem}"/>
+
+                    </ComboBox>
+
+                </StackPanel>
+
+
+                <!-- BAKIM MALİYETİ -->
+                <StackPanel Grid.Row="6">
+
+                    <TextBlock Text="Yıllık Bakım Maliyeti"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="BakimMaliyetiTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- YAKIT MALİYETİ -->
+                <StackPanel Grid.Row="6"
+                            Grid.Column="2">
+
+                    <TextBlock Text="Yıllık Yakıt Maliyeti"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="YakitMaliyetiTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- ARIZA SAYISI -->
+                <StackPanel Grid.Row="8">
+
+                    <TextBlock Text="Arıza Sayısı"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="ArizaSayisiTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+
+                <!-- GÜNCEL DEĞER -->
+                <StackPanel Grid.Row="8"
+                            Grid.Column="2">
+
+                    <TextBlock Text="Güncel Araç Değeri"
+                               Style="{StaticResource Etiket}"/>
+
+                    <TextBox x:Name="GuncelDegerTextBox"
+                             Style="{StaticResource GirisKutusu}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ALT BUTONLAR -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <Button Content="İptal"
+                    Width="110"
+                    Height="42"
+                    Margin="0,0,12,0"
+                    Background="#25344F"
+                    Foreground="#D7E3F5"
+                    BorderBrush="#405577"
+                    BorderThickness="1"
+                    Click="IptalButonu_Click"/>
+
+            <Button Content="Aracı Kaydet"
+                    Width="140"
+                    Height="42"
+                    Background="#397CFF"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="AraciKaydetButonu_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>

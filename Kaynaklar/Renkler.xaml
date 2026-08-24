@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="ArkaPlanBrush" Color="#0A1020"/>
+    <SolidColorBrush x:Key="PanelBrush" Color="#11182B"/>
+    <SolidColorBrush x:Key="KartBrush" Color="#17213A"/>
+
+    <SolidColorBrush x:Key="MaviBrush" Color="#3B82F6"/>
+    <SolidColorBrush x:Key="TurkuazBrush" Color="#22D3EE"/>
+    <SolidColorBrush x:Key="MorBrush" Color="#8B5CF6"/>
+    <SolidColorBrush x:Key="PembeBrush" Color="#EC4899"/>
+    <SolidColorBrush x:Key="YesilBrush" Color="#22C55E"/>
+    <SolidColorBrush x:Key="TuruncuBrush" Color="#F59E0B"/>
+
+    <SolidColorBrush x:Key="AnaYaziBrush" Color="#F8FAFC"/>
+    <SolidColorBrush x:Key="IkincilYaziBrush" Color="#94A3B8"/>
+
+    <SolidColorBrush x:Key="CizgiBrush" Color="#26324A"/>
+</ResourceDictionary>
