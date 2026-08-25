@@ -48,7 +48,7 @@ AHP yöntemi kriterlerin önem ağırlıklarının belirlenmesinde, TOPSIS yönt
 
 Proje Microsoft Visual Studio kullanılarak C# ve WPF teknolojileri ile geliştirilmiştir.
 
-#  Filo Yenileme Karar Destek Sistemi
+#  Filo Yenileme Karar Destek Sistemini Çalıştırma Yol Haritası
 
 Projeyi GitHub üzerinden indirdikten sonra aşağıdaki adımları takip ederek uygulamayı **Visual Studio Code** üzerinden çalıştırabilirsiniz.
 
