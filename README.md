@@ -48,225 +48,266 @@ AHP yöntemi kriterlerin önem ağırlıklarının belirlenmesinde, TOPSIS yönt
 
 Proje Microsoft Visual Studio kullanılarak C# ve WPF teknolojileri ile geliştirilmiştir.
 
-##  Projeyi İndirme ve Çalıştırma
+#  Filo Yenileme Karar Destek Sistemi
 
-Bu proje **C# / WPF ve .NET 10** kullanılarak geliştirilmiştir. Projeyi çalıştırmadan önce bilgisayarınızda gerekli geliştirme ortamının kurulu olması gerekir.
+Projeyi GitHub üzerinden indirdikten sonra aşağıdaki adımları takip ederek uygulamayı **Visual Studio Code** üzerinden çalıştırabilirsiniz.
 
-### 1. Projeyi GitHub'dan İndirin
+##  1. Projeyi İndirin
 
-GitHub üzerindeki proje sayfasına girin.
+GitHub sayfasında:
 
-**Code** butonuna tıklayın.
+**Code → Download ZIP**
 
-Ardından:
+seçeneğini kullanarak projeyi bilgisayarınıza indirin.
 
-**Download ZIP**
+>  Önemli: ZIP dosyasının içerisinden projeyi doğrudan çalıştırmayın.
 
-seçeneğine basarak projeyi bilgisayarınıza indirin.
-
----
-
-### 2. ZIP Dosyasını Ayıklayın
-
-İndirilen `.zip` dosyasını doğrudan açıp proje içerisinden çalıştırmaya çalışmayın.
-
-Öncelikle ZIP dosyasının bulunduğu klasöre gidin.
-
-ZIP dosyasına sağ tıklayın.
-
-Windows'ta:
+İndirdiğiniz ZIP dosyasına sağ tıklayın ve:
 
 **Tümünü Ayıkla / Extract All**
 
-seçeneğine tıklayın.
-
-Ayıklanacak konumu seçtikten sonra:
-
-**Ayıkla / Extract**
-
-butonuna basın.
-
-İşlem tamamlandığında normal bir proje klasörü oluşacaktır.
-
-> ⚠️ Projeyi mutlaka ayıklanan klasör içerisinden açın. ZIP dosyasının içerisinden çalıştırmayın.
+seçeneğiyle projeyi bir klasöre çıkarın.
 
 ---
 
-### 3. Gerekli .NET Sürümünü Kontrol Edin
+##  2. Visual Studio Code ile Açın
 
-Bu proje:
+**Visual Studio Code** uygulamasını açın.
 
-**.NET 10**
-
-kullanmaktadır.
-
-Bilgisayarınızda .NET SDK'nın kurulu olup olmadığını kontrol etmek için Terminal veya Komut İstemi'ni açın ve:
-
-```bash
-dotnet --version
-```
-
-komutunu çalıştırın.
-
-.NET 10 kurulu değilse **.NET 10 SDK** kurulmalıdır.
-
----
-
-### 4. Projeyi VS Code ile Açma
-
-Visual Studio Code'u açın.
-
-Üst menüden:
+Ardından:
 
 **File → Open Folder**
 
-seçeneğine girin.
+seçeneğine tıklayın.
 
-ZIP'ten çıkardığınız **FiloYenile proje klasörünü** seçin.
+Ayıkladığınız **FiloYenile-main** klasörünü seçin.
 
-Doğru klasörün içerisinde aşağıdakilere benzer dosyalar bulunmalıdır:
+Sol taraftaki **Explorer** bölümünde proje dosyaları görünmelidir.
+
+Özellikle:
 
 ```text
 FiloYenile.csproj
 App.xaml
 MainWindow.xaml
-Models
-Views
-ViewModels
-Services
 ```
 
-> Sadece `FiloYenile.csproj` dosyasını açmak yerine projenin bulunduğu **ana klasörü açmanız önerilir.**
+dosyalarını görebildiğinizden emin olun.
 
 ---
 
-### 5. Workspace'e Güvenin
+##  3. Restricted Mode Uyarısı Çıkarsa
 
-VS Code projeyi ilk kez açtığında:
+VS Code projeyi ilk kez açarken:
 
-**Do you trust the authors of the files in this folder?**
+**Restricted Mode**
 
-şeklinde bir uyarı gösterebilir.
+uyarısı gösterebilir.
 
-Projeye güveniyorsanız:
+Bu durumda:
 
-**Trust Workspace & Continue**
+**Manage → Trust**
 
-seçeneğine basın.
+veya
+
+**Trust this folder**
+
+seçeneğini kullanın.
+
+Proje dosyaları bundan sonra normal şekilde kullanılabilir.
 
 ---
 
-### 6. Proje Paketlerini Yükleyin
+##  4. Terminali Açın
 
-VS Code içerisinde:
+VS Code üst menüsünden:
 
 **Terminal → New Terminal**
 
-seçeneğini açın.
+seçeneğine tıklayın.
 
-Terminalde proje klasöründe olduğunuzdan emin olun ve:
+Alternatif olarak:
 
-```bash
-dotnet restore
+```text
+Ctrl + `
 ```
 
-komutunu çalıştırın.
-
-Bu işlem projede kullanılan NuGet paketlerini yükler.
+kısayolunu kullanabilirsiniz.
 
 ---
 
-### 7. Projeyi Çalıştırın
+##  5. Terminalin Doğru Klasörde Olduğunu Kontrol Edin
 
-Restore işlemi tamamlandıktan sonra:
+Terminale:
 
-```bash
-dotnet run
+```powershell
+dir
 ```
 
-komutunu çalıştırın.
+yazın ve **Enter** tuşuna basın.
 
-Alternatif olarak geliştirme ortamınız doğru yapılandırılmışsa:
-
-**F5**
-
-tuşuna basarak da projeyi çalıştırabilirsiniz.
-
----
-
-##  Visual Studio Kullanıyorsanız
-
-Projeyi Visual Studio ile çalıştırmak için ZIP dosyasını yine önce ayıklayın.
-
-Ardından ayıklanan klasör içerisindeki:
+Çıkan dosyaların arasında:
 
 ```text
 FiloYenile.csproj
 ```
 
-dosyasına çift tıklayabilirsiniz.
+görünüyorsa doğru klasördesiniz.
 
-Visual Studio projeyi yükledikten sonra NuGet paketlerinin geri yüklenmesini bekleyin.
+### FiloYenile.csproj görünmüyorsa
 
-Daha sonra:
+Örneğin terminal bir üst klasördeyse:
 
-**F5**
-
-veya üst bölümdeki:
-
-** Start**
-
-butonuyla uygulamayı çalıştırabilirsiniz.
-
----
-
-## Gereksinimler
-
-* Windows işletim sistemi
-* .NET 10 SDK
-* Visual Studio veya Visual Studio Code
-* VS Code kullanılıyorsa C# geliştirme araçları
-* İnternet bağlantısı (ilk NuGet paketlerinin indirilmesi için)
-
----
-
-##  Sık Karşılaşılan Sorunlar
-
-### `A compatible .NET SDK was not found`
-
-Bilgisayarda projenin ihtiyaç duyduğu .NET SDK kurulu değildir.
-
-**.NET 10 SDK yüklenmelidir.**
-
-### `NO FOLDER OPENED`
-
-Proje klasör olarak açılmamıştır.
-
-**File → Open Folder**
-
-seçeneği kullanılarak ayıklanan ana proje klasörü açılmalıdır.
-
-### F5'e basıldığında proje başlamıyor
-
-Öncelikle terminalden:
-
-```bash
-dotnet restore
+```powershell
+cd FiloYenile-main
 ```
 
-ardından:
+yazıp **Enter** tuşuna basın.
 
-```bash
+Ardından tekrar:
+
+```powershell
+dir
+```
+
+yazın.
+
+`FiloYenile.csproj` görünene kadar proje klasöründe olduğunuzdan emin olun.
+
+> Not: Explorer'da `FiloYenile.csproj` dosyasına tıklamak terminalin bulunduğu klasörü değiştirmez. Terminalin de proje klasöründe olması gerekir.
+
+---
+
+##  6. .NET Kurulumunu Kontrol Edin
+
+Terminale:
+
+```powershell
+dotnet --version
+```
+
+yazın.
+
+Bir sürüm numarası görüntüleniyorsa .NET SDK bilgisayarınız tarafından tanınıyor demektir.
+
+Örneğin:
+
+```text
+10.0.300
+```
+
+Proje **.NET 10** hedeflemektedir. Bu nedenle uygun .NET SDK'nın bilgisayarınızda kurulu olması gerekir.
+
+---
+
+##  7. Projeyi Derleyin
+
+Terminale:
+
+```powershell
+dotnet build
+```
+
+yazıp **Enter** tuşuna basın.
+
+İşlem başarılıysa terminalde buna benzer bir sonuç göreceksiniz:
+
+```text
+Build succeeded.
+0 Error(s)
+```
+
+Bu mesaj, projenin başarıyla derlendiğini gösterir.
+
+---
+
+##  8. Uygulamayı Çalıştırın
+
+Build işlemi başarılı olduktan sonra:
+
+```powershell
 dotnet run
 ```
 
-komutlarını deneyin.
+yazıp **Enter** tuşuna basın.
 
-### ZIP içerisinden proje çalışmıyor
+Birkaç saniye içerisinde **Filo Yenileme Karar Destek Sistemi** açılacaktır.
 
-ZIP dosyasına sağ tıklayıp:
+---
 
-**Tümünü Ayıkla**
+##  Sık Karşılaşılan Hata
 
-seçeneğini kullanın ve projeyi oluşan normal klasör içerisinden açın.
+Eğer:
+
+> Bir proje veya çözüm dosyası belirtin. Geçerli çalışma dizini bir proje veya çözüm dosyası içermiyor.
+
+benzeri bir hata alırsanız terminal yanlış klasörde bulunmaktadır.
+
+Şunu çalıştırın:
+
+```powershell
+dir
+```
+
+Listede:
+
+```text
+FiloYenile.csproj
+```
+
+bulunmalıdır.
+
+Bulunmuyorsa proje klasörüne geçin:
+
+```powershell
+cd FiloYenile-main
+```
+
+Ardından:
+
+```powershell
+dotnet build
+```
+
+ve başarılı olduktan sonra:
+
+```powershell
+dotnet run
+```
+
+komutlarını çalıştırın.
+
+---
+
+## Kısa Kurulum Özeti
+
+
+GitHub → Code → Download ZIP
+            ↓
+        ZIP'i Ayıkla
+            ↓
+      VS Code'u Aç
+            ↓
+     File → Open Folder
+            ↓
+     FiloYenile-main
+            ↓
+ Restricted Mode varsa Trust
+            ↓
+    Terminal → New Terminal
+            ↓
+           dir
+            ↓
+ FiloYenile.csproj görünüyor mu?
+            ↓
+     dotnet --version
+            ↓
+       dotnet build
+            ↓
+      Build succeeded
+            ↓
+        dotnet run
+            ↓
+       Uygulama Açılır
+
 
