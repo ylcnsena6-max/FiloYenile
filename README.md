@@ -310,4 +310,4 @@ GitHub → Code → Download ZIP
             ↓
        Uygulama Açılır
 ```
-
+Geliştirici: Senanur Yalçin
